@@ -117,11 +117,4 @@ subprojects {
       }
     }
   }
-
-  if (project.hasProperty('release')) {
-    signing {
-      useGpgCmd()
-      sign publishing.publications.apache
-    }
-  }
 }
