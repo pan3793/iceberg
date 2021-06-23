@@ -95,9 +95,9 @@ object DistributionAndOrderingUtils {
       // for OrderedDistribution and generic expressions for ClusteredDistribution
       // this allows RepartitionByExpression to pick either range or hash partitioning
       if (Spark3VersionUtil.isSpark30) {
-        repartitionByExpressionCtor.newInstance(distribution.toSeq, query, new Integer(numShufflePartitions))
+        repartitionByExpressionCtor.newInstance(distribution.toSeq, query, Integer.valueOf(numShufflePartitions))
       } else {
-        repartitionByExpressionCtor.newInstance(distribution.toSeq, query, Some(numShufflePartitions))
+        repartitionByExpressionCtor.newInstance(distribution.toSeq, query, None)
       }
     } else {
       query
